@@ -39,9 +39,9 @@ func count():
 	return count
 
 func _on_Timer_timeout():
-	record.push_front(count())
+	record.push_back(count())
 	
 	if record.size() > record_length:
-		record.pop_back()
+		record.pop_front()
 	
 	$GUI/Container/menue/graph/graph_Panel.update()

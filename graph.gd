@@ -17,7 +17,7 @@ func _draw():
 			
 			for i in range(record.size()):
 								
-				line.append(Vector2((rect_size.x / record_length) * (record_length - i), 
+				line.append(Vector2(rect_size.x / record_length * i, 
 						rect_size.y *(1- record[i][type] / float(total))))
 				
 			
