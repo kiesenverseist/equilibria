@@ -10,7 +10,7 @@ custom_solver_bias = 0.0
 a = Vector2( 577.832, -119.334 )
 b = Vector2( 587.332, 518.116 )
 
-[sub_resource type="SegmentShape2D" id=5]
+[sub_resource type="SegmentShape2D" id=2]
 
 custom_solver_bias = 0.0
 a = Vector2( -50.406, -5.40537 )
@@ -214,7 +214,7 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="container" index="1"]
 
 position = Vector2( 51.818, 4.31817 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="container" index="2"]
 
