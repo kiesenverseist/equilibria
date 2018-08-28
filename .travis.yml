@@ -8,7 +8,7 @@ env:
   - GAME_NAME="Equilibria"
 
 install:
-- docker build /home/travis/build/kiesenverseist/equilibria/DockerFile
+- docker build https://github.com/kiesenverseist/equilibria.git#master:DockerFile
 
 # Each of the following lines exports the game for a given platform.
 # You can specify the platform in the EXPORT_NAME variable
