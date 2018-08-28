@@ -1,14 +1,38 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://GUI.gd" type="Script" id=2]
 [ext_resource path="res://graph.gd" type="Script" id=3]
 
+[sub_resource type="SegmentShape2D" id=1]
+
+custom_solver_bias = 0.0
+a = Vector2( 577.832, -119.334 )
+b = Vector2( 587.332, 518.116 )
+
+[sub_resource type="SegmentShape2D" id=5]
+
+custom_solver_bias = 0.0
+a = Vector2( -50.406, -5.40537 )
+b = Vector2( 975.032, 4.68186 )
+
+[sub_resource type="SegmentShape2D" id=3]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 0 )
+b = Vector2( -2.59998, 608.45 )
+
+[sub_resource type="SegmentShape2D" id=4]
+
+custom_solver_bias = 0.0
+a = Vector2( 896.448, 565.067 )
+b = Vector2( -138.288, 554.541 )
+
 [node name="main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 record_length = 120
-total = 500
+total = 100
 
 [node name="substances" type="Node" parent="." index="0"]
 
@@ -18,8 +42,6 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.0
-margin_right = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -27,7 +49,11 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 2 )
-_sections_unfolded = [ "Anchor", "Margin" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Container" type="VSplitContainer" parent="GUI" index="0"]
 
@@ -169,6 +195,36 @@ process_mode = 1
 wait_time = 0.5
 one_shot = false
 autostart = true
+
+[node name="container" type="StaticBody2D" parent="." index="3"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="container" index="0"]
+
+position = Vector2( 445.368, 125.234 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="container" index="1"]
+
+position = Vector2( 51.818, 4.31817 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="container" index="2"]
+
+position = Vector2( 1.16258, -0.166084 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="container" index="3"]
+
+position = Vector2( 135.657, 53.1432 )
+shape = SubResource( 4 )
 
 [connection signal="toggled" from="GUI/Container/Container2/CheckButton_visibility" to="GUI" method="_on_CheckButton_visibility_toggled"]
 
