@@ -2,7 +2,23 @@ extends Node
 
 onready var substance_pk = preload("res://substance.tscn")
 
-var key
+## congruent to the periodic table of teh elements i guess
+var key = {
+	"a" : {
+		col = Color(0.2, 0.5, 1),
+		size = 10,
+		speed = 40,
+		volatility = .04,
+		products = "b"
+	},
+	"b" : {
+		col = Color(0.5, 1, 0.2),
+		size = 10,
+		speed = 50,
+		volatility = .02,
+		products = "a"
+	}
+}
 
 var record = []
 export var record_length = 120
@@ -11,14 +27,11 @@ export var total = 500
 
 func _ready():
 	
-	key = substance_pk.instance().key
-	
 	for i in range(total):
 		var substance = substance_pk.instance()
 		substance.position = Vector2($GUI.get_viewport_rect().size.x*randf(),
 				$GUI.get_viewport_rect().size.y*randf())
 		$substances.add_child(substance)
-
 
 func count():
 	var count = {}
@@ -30,7 +43,7 @@ func count():
 		if count.has(type):
 			count[type] += 1
 		else:
-			count[type] = 1
+			count[type] = 0
 		
 		total += 1
 	

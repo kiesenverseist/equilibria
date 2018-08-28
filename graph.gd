@@ -16,9 +16,10 @@ func _draw():
 			var line = []
 			
 			for i in range(record.size()):
-								
-				line.append(Vector2(rect_size.x / record_length * i, 
-						rect_size.y *(1- record[i][type] / float(total))))
+				
+				if record[i].has(type):
+					line.append(Vector2(rect_size.x / record_length * i, 
+							rect_size.y *(1- record[i][type] / float(total))))
 				
 			
 			for i in range(1, line.size()):
