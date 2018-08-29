@@ -16,7 +16,7 @@ WORKDIR /build
 
 RUN apk --no-cache add ca-certificates wget
 
-RUN wget -q --waitretry=1 --retry-connrefused -T 10 https://downloads.tuxfamily.org/godotengine/3.0.6/Godot_v3.0.6-stable_linux_headless.64.zip -O /tmp/godot.zip \
+RUN wget -q --waitretry=1 --retry-connrefused -T 10 https://downloads.tuxfamily.org/godotengine/3.0.6/Godot_v3.0.6-stable_linux_server.64.zip -O /tmp/godot.zip \
 	&& unzip -q -d /tmp /tmp/godot.zip \
 	&& mv /tmp/Godot* /build/godot
 
