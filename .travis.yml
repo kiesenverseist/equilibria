@@ -7,11 +7,8 @@ env:
   # This will, for example, create an "Awesome Game.exe"
   - GAME_NAME="Equilibria"
 
-before_install:
-  - docker build https://github.com/kiesenverseist/equilibria.git#master
-
 install:
-  - docker run -v $(pwd):/build/src -v /tmp/output:/build/output
+  - docker run -v $(pwd):/build/src -v /tmp/output:/build/output https://github.com/kiesenverseist/equilibria.git#master
 
 # Each of the following lines exports the game for a given platform.
 # You can specify the platform in the EXPORT_NAME variable
