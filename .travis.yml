@@ -49,3 +49,17 @@ deploy:
     # regardless of the branch.
     all_branches: true
     tags: true
+
+# The following block is responsible for pushing the HTML5 version of the game
+# to GitHub Pages. To do so, Travis will commit the contents specified in "local-dir"
+# to a "gh-pages" branch in your repository. It will then be accessible at:
+# username.github.io/reponame if your repo is at github.com/username/reponame.
+- provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: output/html5
+  on:
+    # This will only update the game with new commits from the master branch
+    # You can optionally only update the game on new git tags.
+    branch: master
+    # tags: true
